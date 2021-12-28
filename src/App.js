@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import TimeDisplay from './components/TimeDisplay';
 
 
 
 function App() {
-  const [seconds, setSeconds] = useState(0);
+  const [secondsCount, setSecondsCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSeconds((s) => s + 1);
+      setSecondsCount((s) => s + 1);
     }, 1000);
 
     if (!isStarted) {
@@ -22,26 +23,28 @@ function App() {
 
 
   function startStopHandler() {
-    console.log('Clicked');
-    if (isStarted === false) {
-      setIsStarted(true);
-      console.log("🧚 ~ true", true)
-    } else {
-      setIsStarted(false);
-      console.log("🧚 ~ false", false)
-    }
+
+    setIsStarted(!isStarted)
+    // console.log('Clicked');
+    // if (isStarted === false) {
+    //   setIsStarted(true);
+    //   console.log("🧚 ~ true", true)
+    // } else {
+    //   setIsStarted(false);
+    //   console.log("🧚 ~ false", false)
+    // }
   }
 
   function resetHandler() {
     setIsStarted(false);
-    setSeconds(0);
+    setSecondsCount(0);
     console.log('Reset')
   }
 
   return (
     <div className="App">
       <header>
-        <div>{`00:00:${seconds}`}</div>
+        <TimeDisplay secondsCount={secondsCount}/>
         <button onClick={startStopHandler}>{isStarted ? 'Stop' : 'Start'}</button>
         <button onClick={resetHandler}>Reset</button>
       </header>
