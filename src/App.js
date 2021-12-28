@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import TimeDisplay from './components/TimeDisplay';
 
 
@@ -20,8 +19,6 @@ function App() {
 
     return () => clearInterval(intervalId);
   }, [isStarted, miliseconds]);
-
-
 
   function startStopHandler() {
     setIsStarted(!isStarted)
@@ -57,13 +54,12 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+  
         <TimeDisplay secondsCount={secondsCount} />
         <button onClick={startStopHandler}>{isStarted ? 'Stop' : 'Start'}</button>
         <button onClick={resetHandler}>Reset</button>
         <button onClick={slowdownHandler}>Slow down</button>
         <button onClick={speedupHandler}>Speed up</button>
-      </header>
     </div>
   );
 }
