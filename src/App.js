@@ -53,13 +53,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container">
   
         <TimeDisplay secondsCount={secondsCount} />
-        <button onClick={startStopHandler}>{isStarted ? 'Stop' : 'Start'}</button>
-        <button onClick={resetHandler}>Reset</button>
-        <button onClick={slowdownHandler}>Slow down</button>
-        <button onClick={speedupHandler}>Speed up</button>
+        <button className="button-64" onClick={startStopHandler}>{isStarted ? 'Stop' : 'Start'}</button>
+        <button className="button-64" onClick={resetHandler}>Reset</button>
+        <button className="button-64" onClick={slowdownHandler}>Slow down</button>
+        <button className="button-64" onClick={speedupHandler}>Speed up</button>
     </div>
   );
 }
